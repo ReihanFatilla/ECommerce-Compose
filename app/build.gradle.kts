@@ -1,18 +1,18 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id(BuildPlugins.ANDROID_APPLICATION)
+    id(BuildPlugins.ANDROID_KOTLIN)
 }
 
 android {
-    namespace = "com.trawlbens.reift.e_commerce"
-    compileSdk = 33
+    namespace = AppConfig.NAMESPACE
+    compileSdk = AppConfig.compileSdk
 
     defaultConfig {
-        applicationId = "com.trawlbens.reift.e_commerce"
-        minSdk = 26
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = AppConfig.APPLICATION_ID
+        minSdk = AppConfig.minSdk
+        targetSdk = AppConfig.targetSdk
+        versionCode = AppConfig.versionCode
+        versionName = AppConfig.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {

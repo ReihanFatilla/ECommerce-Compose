@@ -1,14 +1,14 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    id(BuildPlugins.ANDROID_APPLICATION)
+    id(BuildPlugins.ANDROID_KOTLIN)
 }
 
 android {
-    namespace = "com.trawlbens.reift.core"
-    compileSdk = 33
+    namespace = AppConfig.CORE_NAMESPACE
+    compileSdk = AppConfig.compileSdk
 
     defaultConfig {
-        minSdk = 26
+        minSdk = AppConfig.targetSdk
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
