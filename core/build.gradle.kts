@@ -1,5 +1,5 @@
 plugins {
-    id(BuildPlugins.ANDROID_APPLICATION)
+    id(BuildPlugins.ANDROID_LIBRARY)
     id(BuildPlugins.ANDROID_KOTLIN)
 }
 
@@ -8,7 +8,7 @@ android {
     compileSdk = AppConfig.compileSdk
 
     defaultConfig {
-        minSdk = AppConfig.targetSdk
+        minSdk = AppConfig.minSdk
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         proguardFiles(
@@ -37,4 +37,5 @@ android {
 
 dependencies {
     addCoreModuleDependencies()
+    addSharedModuleDepencies()
 }

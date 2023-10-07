@@ -26,13 +26,20 @@ fun DependencyHandler.androidTestImplementation(dependencyNotation: String): Dep
 fun DependencyHandler.addAppModuleDependencies() {
     implementation(AppDependencies.LIFECYCLE_RUNTIME_KTX)
     implementation(AppDependencies.COMPOSE_UI)
+    implementation(AppDependencies.COMPOSE_ACTIVITY)
     implementation(AppDependencies.COMPOSE_UI_GRAPHICS)
     implementation(AppDependencies.COMPOSE_UI_TOOLING_PREVIEW)
     implementation(AppDependencies.COMPOSE_MATERIAL)
+    implementation(AppDependencies.COMPOSE_MATERIAL_3)
+    debugImplementation(AppDependencies.COMPOSE_UI_TOOLING)
 }
 
 fun DependencyHandler.addCoreModuleDependencies() {
     implementation(CoreDependencies.KOTLINX_SERIALIZATION)
+    implementation(CoreDependencies.KTOR_CORE)
+    implementation(CoreDependencies.KTOR_ANDROID)
+    implementation(CoreDependencies.KTOR_SERIALIZATION)
+    implementation(CoreDependencies.KTOR_LOGGING)
 }
 
 fun DependencyHandler.addSharedModuleDepencies(){
