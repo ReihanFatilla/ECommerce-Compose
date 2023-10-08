@@ -36,7 +36,6 @@ fun HomeScreen() {
         ) { index ->
             ProductGrid(
                 listProduct = listProduct,
-                category = Product.Categories[index]
             )
         }
     }

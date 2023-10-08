@@ -36,17 +36,14 @@ import com.trawlbens.reift.core.domain.model.Product
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun ProductGrid(listProduct: List<Product>, category: String) {
+fun ProductGrid(modifier: Modifier = Modifier,listProduct: List<Product>) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
         verticalArrangement = Arrangement.spacedBy(16.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp),
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         contentPadding = PaddingValues(16.dp)
     ) {
-//        item(span = { GridItemSpan(2) }) {
-//
-//        }
         items(listProduct) { product ->
             Column {
                 Image(
