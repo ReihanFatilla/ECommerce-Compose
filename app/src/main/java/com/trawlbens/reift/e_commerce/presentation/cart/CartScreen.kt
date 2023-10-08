@@ -8,7 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.trawlbens.reift.core.domain.model.Product
 import com.trawlbens.reift.e_commerce.presentation.cart.composables.CartTopBar
-import com.trawlbens.reift.e_commerce.presentation.home.composables.ProductGrid
+import com.trawlbens.reift.e_commerce.presentation.common.ProductGrid
 
 @Composable
 fun CartScreen(){

@@ -1,4 +1,4 @@
-package com.trawlbens.reift.e_commerce.presentation.home.composables
+package com.trawlbens.reift.e_commerce.presentation.common
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
@@ -52,7 +52,7 @@ fun ProductGrid(modifier: Modifier = Modifier,listProduct: List<Product>) {
                         .fillMaxWidth()
                         .aspectRatio(1f)
                         .clip(RoundedCornerShape(10.dp))
-                        .background(Color(0xFFE9E9E9))
+                        .background(Color.White)
                         .padding(all = 12.dp),
                     painter = rememberAsyncImagePainter(model = product.imageUrl),
                     contentDescription = product.name + " Image"
