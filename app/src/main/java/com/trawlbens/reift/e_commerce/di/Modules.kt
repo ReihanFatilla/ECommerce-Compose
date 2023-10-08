@@ -1,7 +1,35 @@
 package com.trawlbens.reift.e_commerce.di
 
+import com.trawlbens.reift.core.domain.usecase.cart.CartInteractor
+import com.trawlbens.reift.core.domain.usecase.cart.CartUseCase
+import com.trawlbens.reift.core.domain.usecase.detail.DetailInteractor
+import com.trawlbens.reift.core.domain.usecase.detail.DetailUseCase
+import com.trawlbens.reift.core.domain.usecase.product.ProductInteractor
+import com.trawlbens.reift.core.domain.usecase.product.ProductUseCase
+import com.trawlbens.reift.core.domain.usecase.search.SearchInteractor
+import com.trawlbens.reift.core.domain.usecase.search.SearchUseCase
+import com.trawlbens.reift.e_commerce.presentation.cart.CartViewModel
+import com.trawlbens.reift.e_commerce.presentation.detail.DetailViewModel
+import com.trawlbens.reift.e_commerce.presentation.home.HomeViewModel
+import com.trawlbens.reift.e_commerce.presentation.search.SearchViewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
+val useCaseModule = module {
+    single<ProductUseCase> { ProductInteractor(get()) }
+    single<DetailUseCase> { DetailInteractor(get()) }
+    single<CartUseCase> { CartInteractor(get()) }
+    single<SearchUseCase> { SearchInteractor(get()) }
+}
+
+val viewModelModule = module {
+    viewModel { HomeViewModel(get()) }
+    viewModel { DetailViewModel(get()) }
+    viewModel { CartViewModel(get()) }
+    viewModel { SearchViewModel(get()) }
+}
+
 val listModules = listOf(
-    module {  }
+    useCaseModule,
+    viewModelModule
 )
