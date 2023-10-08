@@ -1,6 +1,7 @@
 plugins {
     id(BuildPlugins.ANDROID_LIBRARY)
     id(BuildPlugins.ANDROID_KOTLIN)
+    id(BuildPlugins.KOTLIN_KAPT)
 }
 
 android {
@@ -36,7 +37,6 @@ android {
 }
 
 dependencies {
-
     addCoreModuleDependencies()
     addSharedModuleDepencies()
 }

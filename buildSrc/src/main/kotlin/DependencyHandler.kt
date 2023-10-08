@@ -41,13 +41,13 @@ fun DependencyHandler.addCoreModuleDependencies() {
     implementation(CoreDependencies.KTOR_ANDROID)
     implementation(CoreDependencies.KTOR_SERIALIZATION)
     implementation(CoreDependencies.KTOR_LOGGING)
+    implementation(CoreDependencies.ROOM_RUNTIME)
+    kapt(CoreDependencies.ROOM_COMPILER)
+    implementation(CoreDependencies.ROOM_KTX)
 }
 
 fun DependencyHandler.addSharedModuleDepencies(){
     implementation(SharedDependencies.CORE_KTX)
     implementation(SharedDependencies.KOIN)
     implementation(SharedDependencies.KOIN_COMPOSE)
-    implementation(SharedDependencies.RX_JAVA)
-    implementation(SharedDependencies.RX_JAVA_ANDROID)
-    implementation(SharedDependencies.RX_JAVA_ADAPTER)
 }
