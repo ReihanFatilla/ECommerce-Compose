@@ -5,6 +5,6 @@ import io.reactivex.rxjava3.core.Flowable
 import kotlinx.coroutines.flow.Flow
 
 interface ProductUseCase {
-    fun getProductByCategory(category: String): Flowable<List<Product>>
+    fun getProductByCategory(category: String): Flow<List<Product>>
     fun getCartProduct(): Flow<List<Product>>
 }
