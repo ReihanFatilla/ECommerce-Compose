@@ -9,8 +9,3 @@ data class ProductDTO(
     val title: String? = null,
     val category: String? = null
 )
-
-data class RatingDTO(
-    val rate: Double? = null,
-    val count: Int? = null
-)
