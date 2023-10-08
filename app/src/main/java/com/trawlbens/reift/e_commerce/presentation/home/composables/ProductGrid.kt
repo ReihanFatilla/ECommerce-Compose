@@ -83,7 +83,7 @@ fun ProductGrid(modifier: Modifier = Modifier,listProduct: List<Product>) {
                 }
                 Spacer(modifier = Modifier.height(12.dp))
                 Text(
-                    text = product.price.toString(),
+                    text = "$ "+product.price.toString(),
                     fontWeight = FontWeight.Bold,
                     fontSize = 16.sp
                 )
