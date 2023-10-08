@@ -8,8 +8,4 @@ class ProductInteractor(val productRepository: ProductRepository): ProductUseCas
     override fun getProductByCategory(category: String): Flow<List<Product>> {
         return productRepository.getProductByCategory(category)
     }
-
-    override fun getCartProduct(): Flow<List<Product>> {
-        return productRepository.getCartProduct()
-    }
 }

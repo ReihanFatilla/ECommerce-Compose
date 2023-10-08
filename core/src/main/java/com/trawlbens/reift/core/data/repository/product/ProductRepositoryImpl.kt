@@ -23,11 +23,5 @@ class ProductRepositoryImpl(
         }
     }
 
-    override fun getCartProduct(): Flow<List<Product>> {
-        return localDataSource.getCartProductList().map { list ->
-            list.map { entity ->
-                entity.toModel()
-            }
-        }
-    }
+
 }

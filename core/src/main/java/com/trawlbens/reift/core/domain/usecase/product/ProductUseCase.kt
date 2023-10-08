@@ -5,6 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface ProductUseCase {
     fun getProductByCategory(category: String): Flow<List<Product>>
-    fun getCartProduct(): Flow<List<Product>>
+
 
 }
