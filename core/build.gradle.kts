@@ -36,6 +36,7 @@ android {
 }
 
 dependencies {
+
     addCoreModuleDependencies()
     addSharedModuleDepencies()
 }

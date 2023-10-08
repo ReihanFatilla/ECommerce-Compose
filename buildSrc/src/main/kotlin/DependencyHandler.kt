@@ -47,4 +47,7 @@ fun DependencyHandler.addSharedModuleDepencies(){
     implementation(SharedDependencies.CORE_KTX)
     implementation(SharedDependencies.KOIN)
     implementation(SharedDependencies.KOIN_COMPOSE)
+    implementation(SharedDependencies.RX_JAVA)
+    implementation(SharedDependencies.RX_JAVA_ANDROID)
+    implementation(SharedDependencies.RX_JAVA_ADAPTER)
 }

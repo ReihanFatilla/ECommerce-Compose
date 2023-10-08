@@ -5,6 +5,8 @@ object BuildDependencyVersions {
     // Shared
     const val KOIN_VERSION = "3.2.0-beta-1"
     const val KTX_VERSION = "1.9.0"
+    const val RX_JAVA_VERSION = "3.0.0"
+    const val RX_JAVA_ADAPTER_VERSION = "2.9.0"
 
     // App
     const val LIFECYCLE_RUNTIME_VERSION = "2.6.2"
