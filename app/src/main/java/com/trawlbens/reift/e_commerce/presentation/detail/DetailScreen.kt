@@ -5,11 +5,18 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Icon
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Star
 import androidx.compose.material3.Text
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -25,6 +32,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import com.trawlbens.reift.core.domain.model.Product
+import com.trawlbens.reift.e_commerce.presentation.detail.composables.DetailBottomBar
+import com.trawlbens.reift.e_commerce.presentation.detail.composables.DetailProductText
 import com.trawlbens.reift.e_commerce.presentation.detail.composables.DetailTopBar
 
 @Composable
@@ -44,33 +53,20 @@ fun DetailScreen(
             Image(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .aspectRatio(1.7f)
+                    .aspectRatio(1.5f)
                     .clip(RoundedCornerShape(10.dp))
                     .background(Color(0xFFE9E9E9))
                     .padding(all = 12.dp),
                 painter = rememberAsyncImagePainter(model = product.imageUrl),
                 contentDescription = product.name + " Image",
             )
+            Spacer(modifier = Modifier.height(16.dp))
+            DetailProductText(product = product)
         }
     }
 }
 
-@Composable
-fun DetailBottomBar(product: Product) {
-    Row(
-        modifier = Modifier.padding(bottom = 16.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(16.dp)
-    ) {
-        Column{
-            Text(text = "Price", color = Color.Gray, fontWeight = FontWeight.SemiBold, fontSize = 18.sp)
-            Text(text = "$ "+product.price.toString(), color = Color.Black, fontWeight = FontWeight.Bold, fontSize = 24.sp)
-        }
-        Button(modifier = Modifier.fillMaxWidth(),onClick = {  }, colors = ButtonDefaults.buttonColors(containerColor = Color.Black), shape = RoundedCornerShape(10.dp)) {
-            Text(text = "Add To Cart", fontWeight = FontWeight.Bold, fontSize = 22.sp)
-        }
-    }
-}
+
 
 @Composable
 @Preview(showBackground = true)
