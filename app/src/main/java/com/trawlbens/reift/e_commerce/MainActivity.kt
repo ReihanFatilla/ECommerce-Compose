@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import com.trawlbens.reift.e_commerce.presentation.home.HomeScreen
 import com.trawlbens.reift.e_commerce.ui.theme.ECommerceTheme
 
 class MainActivity : ComponentActivity() {
@@ -24,20 +25,11 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    HomeScreen()
                 }
             }
         }
     }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier.fillMaxWidth(),
-        textAlign = TextAlign.Center
-    )
 }
 
 @Preview(showBackground = true)
@@ -47,6 +39,6 @@ fun GreetingPreview() {
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
     ) {
-        Greeting("Android")
+        HomeScreen()
     }
 }
