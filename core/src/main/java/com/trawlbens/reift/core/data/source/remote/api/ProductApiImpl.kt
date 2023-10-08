@@ -11,4 +11,10 @@ class ProductApiImpl(val client: HttpClient):ProductApi {
             url(ProductApi.GET_PRODUCT_URL(category))
         }
     }
+
+    override suspend fun getAllProduct(): List<ProductDTO> {
+        return client.get{
+            url(ProductApi.GET_ALL_PRODUCT_URL)
+        }
+    }
 }

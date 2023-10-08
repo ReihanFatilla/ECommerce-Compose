@@ -9,4 +9,8 @@ class RemoteDataSource(
     suspend fun getProductByCategory(category: String): List<ProductDTO> {
         return productApi.getProductByCategory(category)
     }
+
+    suspend fun getAllProduct(): List<ProductDTO> {
+        return productApi.getAllProduct()
+    }
 }
