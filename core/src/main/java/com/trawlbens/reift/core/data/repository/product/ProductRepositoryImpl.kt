@@ -6,9 +6,9 @@ import com.trawlbens.reift.core.data.source.remote.dto.ProductDTO
 import com.trawlbens.reift.core.domain.model.Product
 import com.trawlbens.reift.core.domain.repository.product.ProductRepository
 import com.trawlbens.reift.core.utils.DataMapper.toModel
-import io.reactivex.rxjava3.core.Flowable
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 
 class ProductRepositoryImpl(
     val remoteDataSource: RemoteDataSource,
@@ -16,12 +16,18 @@ class ProductRepositoryImpl(
 ): ProductRepository {
     override fun getProductByCategory(category: String): Flow<List<Product>> {
         return flow {
-            val listProduct = remoteDataSource.getProductByCategory(category).map { it.toModel() }
+            val listProduct = remoteDataSource.getProductByCategory(category).map { dto ->
+                dto.toModel()
+            }
             emit(listProduct)
         }
     }
 
     override fun getCartProduct(): Flow<List<Product>> {
-        TODO("Not yet implemented")
+        return localDataSource.getCartProductList().map { list ->
+            list.map { entity ->
+                entity.toModel()
+            }
+        }
     }
 }

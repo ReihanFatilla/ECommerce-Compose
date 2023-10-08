@@ -2,13 +2,18 @@ package com.trawlbens.reift.core.domain.usecase.detail
 
 import com.trawlbens.reift.core.domain.model.Product
 import com.trawlbens.reift.core.domain.repository.detail.DetailRepository
+import kotlinx.coroutines.flow.Flow
 
 class DetailInteractor(val detailRepository: DetailRepository): DetailUseCase {
-    override suspend fun addToCartProduct(product: Product) {
+    override fun addToCartProduct(product: Product) {
         detailRepository.addToCartProduct(product)
     }
 
-    override suspend fun removeFromCartProduct(product: Product) {
+    override fun removeFromCartProduct(product: Product) {
         detailRepository.removeFromCartProduct(product)
+    }
+
+    override fun isProductOnCart(id: Int): Flow<Boolean> {
+        return detailRepository.isProductOnCart(id)
     }
 }

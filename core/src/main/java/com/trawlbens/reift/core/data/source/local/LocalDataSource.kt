@@ -11,7 +11,7 @@ class LocalDataSource(
         return productDAO.getCartProductList()
     }
 
-    fun getCartProductById(id: String): Flow<ProductEntity?>{
+    fun getCartProductById(id: Int): Flow<ProductEntity?>{
         return productDAO.getCartProductById(id)
     }
 

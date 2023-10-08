@@ -13,7 +13,7 @@ interface ProductDAO {
     @Query("SELECT * FROM ProductEntity")
     fun getCartProductList(): Flow<List<ProductEntity>>
     @Query("SELECT * FROM ProductEntity WHERE id LIKE :id")
-    fun getCartProductById(id: String): Flow<ProductEntity?>
+    fun getCartProductById(id: Int): Flow<ProductEntity?>
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCartProduct(productEntity: ProductEntity)
     @Delete
