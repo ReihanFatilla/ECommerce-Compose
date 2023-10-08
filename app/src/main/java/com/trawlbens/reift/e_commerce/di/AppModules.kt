@@ -1,5 +1,9 @@
 package com.trawlbens.reift.e_commerce.di
 
+import com.trawlbens.reift.core.di.dataSourceModule
+import com.trawlbens.reift.core.di.databaseModule
+import com.trawlbens.reift.core.di.networkModule
+import com.trawlbens.reift.core.di.repositoryModule
 import com.trawlbens.reift.core.domain.usecase.cart.CartInteractor
 import com.trawlbens.reift.core.domain.usecase.cart.CartUseCase
 import com.trawlbens.reift.core.domain.usecase.detail.DetailInteractor
@@ -30,6 +34,10 @@ val viewModelModule = module {
 }
 
 val listModules = listOf(
+    databaseModule,
+    networkModule,
+    dataSourceModule,
+    repositoryModule,
     useCaseModule,
     viewModelModule
 )

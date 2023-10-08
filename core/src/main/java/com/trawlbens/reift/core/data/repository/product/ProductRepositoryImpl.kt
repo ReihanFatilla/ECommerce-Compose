@@ -11,8 +11,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 
 class ProductRepositoryImpl(
-    val remoteDataSource: RemoteDataSource,
-    val localDataSource: LocalDataSource
+    val remoteDataSource: RemoteDataSource
 ): ProductRepository {
     override fun getProductByCategory(category: String): Flow<List<Product>> {
         return flow {

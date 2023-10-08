@@ -13,7 +13,6 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 
 class DetailRepositoryImpl(
-    val remoteDataSource: RemoteDataSource,
     val localDataSource: LocalDataSource
 ): DetailRepository {
     override fun addToCartProduct(product: Product) {
