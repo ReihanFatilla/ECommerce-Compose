@@ -16,39 +16,44 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.trawlbens.reift.core.domain.model.Product
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HomeTopBar(pagerState: PagerState, onTabClick: (Int) -> Unit) {
     Column {
-        TopAppBar(
-            modifier = Modifier.padding(end = 16.dp),
-            backgroundColor = Color.Transparent,
-            elevation = 0.dp,
-            title = { Text(text = "E-Commerce", fontWeight = FontWeight.Bold) },
-            actions = {
-                Icon(imageVector = Icons.Outlined.ShoppingCart, contentDescription = "shopping cart icon", tint = Color.Black)
-            }
-        )
+        TopAppBar()
+        CategoryTabRow(pagerState = pagerState, onTabClick = onTabClick)
+    }
+}
 
-        ScrollableTabRow(selectedTabIndex = pagerState.currentPage, edgePadding = 16.dp) {
-            listOf(
-                "Electronics",
-                "Jewelery",
-                "Men's Clothing",
-                "Women's Clothing"
-            ).forEachIndexed { index, text ->
-                Tab(
-                    selected = pagerState.currentPage == index,
-                    onClick = {
-                              onTabClick(index)
-                    },
-                    text = {
-                        Text(text = text)
-                    },
-                )
-            }
+@Composable
+fun TopAppBar(){
+    TopAppBar(
+        modifier = Modifier.padding(end = 16.dp),
+        backgroundColor = Color.Transparent,
+        elevation = 0.dp,
+        title = { Text(text = "E-Commerce", fontWeight = FontWeight.Bold) },
+        actions = {
+            Icon(imageVector = Icons.Outlined.ShoppingCart, contentDescription = "shopping cart icon", tint = Color.Black)
         }
+    )
+}
 
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun CategoryTabRow(pagerState: PagerState, onTabClick: (Int) -> Unit){
+    ScrollableTabRow(selectedTabIndex = pagerState.currentPage, edgePadding = 16.dp, indicator = {}) {
+        Product.Categories.forEachIndexed { index, text ->
+            Tab(
+                selected = pagerState.currentPage == index,
+                onClick = {
+                    onTabClick(index)
+                },
+                text = {
+                    Text(text = text)
+                },
+            )
+        }
     }
 }

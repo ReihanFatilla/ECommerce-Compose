@@ -21,5 +21,11 @@ data class Product(
                 rateCount = 259
             )
         }
+        val Categories = listOf(
+            "Electronics",
+            "Jewelery",
+            "Men's Clothing",
+            "Women's Clothing"
+        )
     }
 }

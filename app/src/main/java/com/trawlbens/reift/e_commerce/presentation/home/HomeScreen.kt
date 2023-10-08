@@ -1,9 +1,9 @@
 package com.trawlbens.reift.e_commerce.presentation.home
 
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -27,13 +27,16 @@ fun HomeScreen() {
             scope.launch { pagerState.animateScrollToPage(it) }
         } }
     ){ paddingValues ->
-        Column(
-            Modifier
+        HorizontalPager(
+            state = pagerState,
+            pageCount = 4,
+            modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues = paddingValues)
-        ) {
+        ) { index ->
             ProductGrid(
-                listProduct = listProduct
+                listProduct = listProduct,
+                category = Product.Categories[index]
             )
         }
     }
