@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import com.trawlbens.reift.core.domain.model.Product
+import com.trawlbens.reift.e_commerce.utils.Extension.firstThirdWords
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -57,7 +58,7 @@ fun ProductGrid(modifier: Modifier = Modifier,listProduct: List<Product>) {
                     contentDescription = product.name + " Image"
                 )
                 Spacer(modifier = Modifier.height(8.dp))
-                Text(text = product.name, fontWeight = FontWeight.ExtraBold)
+                Text(text = product.name.firstThirdWords(), fontWeight = FontWeight.ExtraBold)
                 Row(
                     verticalAlignment = Alignment.CenterVertically
                 ) {

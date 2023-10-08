@@ -1,7 +1,7 @@
 package com.trawlbens.reift.e_commerce.utils
 
 object Extension {
-    fun String.firstTwoWords(): String {
-        return split(" ").take(2).joinToString(" ")
+    fun String.firstThirdWords(): String {
+        return split(" ").take(3).joinToString(" ")
     }
 }
