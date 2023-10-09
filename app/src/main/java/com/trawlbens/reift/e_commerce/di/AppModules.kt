@@ -29,7 +29,9 @@ val useCaseModule = module {
 }
 
 val viewModelModule = module {
-    factory { (useCase: ProductUseCase) -> HomeViewModel(useCase) }
+    (0..3).forEach { index ->
+        viewModel(named(index.toString())) { HomeViewModel(get()) }
+    }
     viewModel { DetailViewModel(get()) }
     viewModel { CartViewModel(get()) }
     viewModel { SearchViewModel(get()) }

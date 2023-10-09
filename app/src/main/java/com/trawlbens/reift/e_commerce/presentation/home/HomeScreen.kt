@@ -1,6 +1,7 @@
 package com.trawlbens.reift.e_commerce.presentation.home
 
 import android.util.Log
+import android.widget.Toast
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -16,6 +17,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootNavGraph
@@ -26,7 +29,9 @@ import com.trawlbens.reift.e_commerce.presentation.home.composables.HomeTopBar
 import com.trawlbens.reift.e_commerce.presentation.common.ProductGrid
 import kotlinx.coroutines.launch
 import org.koin.androidx.compose.get
+import org.koin.androidx.compose.getViewModel
 import org.koin.core.parameter.parametersOf
+import org.koin.core.qualifier.named
 
 @OptIn(ExperimentalFoundationApi::class)
 @RootNavGraph(start = true)
@@ -46,13 +51,15 @@ fun HomeScreen(
             }
         }
     ) { paddingValues ->
+
         HorizontalPager(
-            modifier = Modifier.fillMaxSize().padding(paddingValues = paddingValues),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues = paddingValues),
             state = pagerState,
             pageCount = 3
-        ){ index ->
-            val useCaseInstance: ProductUseCase = get()
-            val viewModel: HomeViewModel = get { parametersOf(useCaseInstance) }
+        ) { index ->
+            val viewModel = getViewModel<HomeViewModel>(named(index.toString()))
             viewModel.getProductByCategory(Product.Categories[index])
             ProductPager(navigator, viewModel)
         }
