@@ -46,7 +46,7 @@ fun DetailScreen(
                     .fillMaxWidth()
                     .aspectRatio(1.5f)
                     .clip(RoundedCornerShape(10.dp))
-                    .background(Color(0xFFE9E9E9))
+                    .background(Color.White)
                     .padding(all = 12.dp),
                 painter = rememberAsyncImagePainter(model = product.imageUrl),
                 contentDescription = product.name + " Image",

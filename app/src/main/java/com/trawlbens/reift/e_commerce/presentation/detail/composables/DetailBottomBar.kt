@@ -56,14 +56,15 @@ fun DetailBottomBar(product: Product) {
                     viewModel.addToCartProduct(product)
                 }
             },
-            border = if (!isProductOnCart) BorderStroke(1.dp, Color.Black) else null,
+            border = if (isProductOnCart) BorderStroke(1.dp, Color.Black) else null,
             colors = ButtonDefaults.buttonColors(containerColor = if (isProductOnCart) Color.White else Color.Black),
             shape = RoundedCornerShape(10.dp)
         ) {
             Text(
                 text = if (isProductOnCart) "Remove From Cart" else "Add To Cart",
                 fontWeight = FontWeight.Bold,
-                fontSize = 20.sp
+                fontSize = 20.sp,
+                color = if (isProductOnCart) Color.Black else Color.White
             )
         }
     }
