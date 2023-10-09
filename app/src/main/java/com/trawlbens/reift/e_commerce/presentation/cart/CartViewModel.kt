@@ -15,10 +15,14 @@ import kotlinx.coroutines.flow.onEach
 class CartViewModel(
     val cartUseCase: CartUseCase
 ): ViewModel() {
+    init {
+        getCartProduct()
+    }
+
     private val _listCartProductState: MutableStateFlow<List<Product>> = MutableStateFlow(listOf())
     val listCartProductState: StateFlow<List<Product>> = _listCartProductState
 
-    fun getProductByCategory(category: String) {
+    private fun getCartProduct() {
         cartUseCase.getCartProduct().onEach { listProduct ->
             _listCartProductState.value = listProduct
         }.launchIn(viewModelScope)
