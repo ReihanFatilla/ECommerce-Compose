@@ -1,5 +1,10 @@
 package com.trawlbens.reift.core.domain.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+
+@Parcelize
 data class Product(
     val id: Int,
     val name: String,
@@ -8,7 +13,7 @@ data class Product(
     val imageUrl: String,
     val rate: String,
     val rateCount: String
-) {
+): Parcelable {
     companion object{
         val DUMMY = List(5){
             Product(

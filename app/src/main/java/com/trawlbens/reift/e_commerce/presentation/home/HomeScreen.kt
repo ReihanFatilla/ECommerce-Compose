@@ -17,20 +17,24 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.annotation.RootNavGraph
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.trawlbens.reift.core.domain.model.Product
 import com.trawlbens.reift.core.domain.usecase.product.ProductUseCase
 import com.trawlbens.reift.e_commerce.presentation.home.composables.HomeTopBar
 import com.trawlbens.reift.e_commerce.presentation.common.ProductGrid
 import kotlinx.coroutines.launch
 import org.koin.androidx.compose.get
-import org.koin.androidx.compose.getViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
 import org.koin.core.parameter.parametersOf
-import org.koin.core.qualifier.named
 
 @OptIn(ExperimentalFoundationApi::class)
+@RootNavGraph(start = true)
+@Destination
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    navigator: DestinationsNavigator,
+) {
     val pagerState = rememberPagerState()
     val scope = rememberCoroutineScope()
 
@@ -43,12 +47,10 @@ fun HomeScreen() {
         }
     ) { paddingValues ->
         HorizontalPager(
+            modifier = Modifier.fillMaxSize().padding(paddingValues = paddingValues),
             state = pagerState,
-            pageCount = 4,
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues = paddingValues)
-        ) { index ->
+            pageCount = 3
+        ){ index ->
             val useCaseInstance: ProductUseCase = get()
             val viewModel: HomeViewModel = get { parametersOf(useCaseInstance) }
             viewModel.getProductByCategory(Product.Categories[index])
@@ -68,5 +70,5 @@ fun ProductPager(viewModel: HomeViewModel) {
 @Composable
 @Preview(showBackground = true)
 fun HomeScreenPreview() {
-    HomeScreen()
+//    HomeScreen()
 }

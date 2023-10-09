@@ -1,6 +1,7 @@
 package com.trawlbens.reift.e_commerce.presentation.home.composables
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
@@ -19,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.trawlbens.reift.core.domain.model.Product
 import com.trawlbens.reift.e_commerce.utils.Extension.toWordCase
 
@@ -41,7 +43,9 @@ fun TopAppBar(){
         actions = {
             Icon(imageVector = Icons.Outlined.Search, contentDescription = "Search icon", tint = Color.Black)
             Spacer(modifier = Modifier.width(20.dp))
-            Icon(imageVector = Icons.Outlined.ShoppingCart, contentDescription = "shopping cart icon", tint = Color.Black)
+            Icon(modifier = Modifier.clickable {
+
+            },imageVector = Icons.Outlined.ShoppingCart, contentDescription = "shopping cart icon", tint = Color.Black)
         }
     )
 }
