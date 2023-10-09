@@ -4,8 +4,10 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.trawlbens.reift.core.domain.model.Product
 import com.trawlbens.reift.core.domain.usecase.search.SearchUseCase
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
 class SearchViewModel(
@@ -24,7 +26,7 @@ class SearchViewModel(
     private fun getAllProduct() {
         searchUseCase.getAllProducts().onEach { listProduct ->
             listProductState.value = listProduct
-        }
+        }.launchIn(viewModelScope)
     }
 
     fun searchProduct(query: String) {
