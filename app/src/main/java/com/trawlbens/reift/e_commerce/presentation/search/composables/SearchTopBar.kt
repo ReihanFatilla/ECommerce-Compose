@@ -29,10 +29,10 @@ import com.trawlbens.reift.e_commerce.utils.Extension.toWordCase
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun SearchTopBar(navigator: DestinationsNavigator, query: String, onValueChange: (String) -> Unit) {
+fun SearchTopBar(navigator: DestinationsNavigator) {
     Column {
         TopAppBar(navigator)
-        SearchBar(query = query, onValueChange = onValueChange)
+        SearchBar()
     }
 }
 

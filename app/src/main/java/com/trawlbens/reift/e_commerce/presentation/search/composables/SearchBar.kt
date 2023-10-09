@@ -11,16 +11,27 @@ import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.trawlbens.reift.e_commerce.presentation.search.SearchViewModel
+import org.koin.androidx.compose.getViewModel
 
 @Composable
-fun SearchBar(query: String, onValueChange: (String) -> Unit) {
+fun SearchBar() {
+    val viewModel = getViewModel<SearchViewModel>()
+    var query by remember { mutableStateOf("") }
     TextField(
         value = query,
-        onValueChange = { onValueChange(it) },
+        onValueChange = {
+            query = it
+            viewModel.searchProduct(it)
+        },
         modifier = Modifier
             .fillMaxWidth()
             .padding(all = 16.dp)

@@ -33,7 +33,7 @@ class SearchViewModel(
 
     fun searchProduct(query: String) {
         _listSearchedProductState.value = listProductState.value.filter {
-            it.name.contains(query) || it.description.contains(query)
+            it.name.contains(query, ignoreCase = true) || it.description.contains(query, ignoreCase = true)
         }
     }
 
