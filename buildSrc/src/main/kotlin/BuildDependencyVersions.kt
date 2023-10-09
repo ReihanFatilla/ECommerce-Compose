@@ -16,6 +16,7 @@ object BuildDependencyVersions {
     const val MATERIAL_3_VERSION = "1.1.2"
     const val COIL_VERSION = "2.0.0-rc01"
     const val COMPOSE_DESTINATION_VERSION = "1.7.41-beta"
+    const val WORK_MANAGER_VERSION = "2.7.1"
 
     // Core
     const val KTOR_VERSION = "1.6.5"

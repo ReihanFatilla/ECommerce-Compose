@@ -24,6 +24,7 @@ import com.trawlbens.reift.core.domain.model.Product
 import com.trawlbens.reift.e_commerce.presentation.detail.composables.DetailBottomBar
 import com.trawlbens.reift.e_commerce.presentation.detail.composables.DetailProductText
 import com.trawlbens.reift.e_commerce.presentation.detail.composables.DetailTopBar
+import com.trawlbens.reift.e_commerce.utils.NotificationWorker
 
 @Destination
 @Composable
@@ -31,6 +32,7 @@ fun DetailScreen(
     navigator: DestinationsNavigator,
     product: Product,
 ) {
+    NotificationWorker.notificationProduct = product
     Scaffold(
         modifier = Modifier
             .fillMaxSize()
