@@ -34,6 +34,7 @@ import com.ramcosta.composedestinations.spec.NavHostEngine
 import com.trawlbens.reift.e_commerce.presentation.NavGraphs
 import com.trawlbens.reift.e_commerce.presentation.home.HomeScreen
 import com.trawlbens.reift.e_commerce.ui.theme.ECommerceTheme
+import com.trawlbens.reift.e_commerce.utils.generateCustomNavHostEngine
 
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalAnimationApi::class, ExperimentalMaterialNavigationApi::class)
@@ -47,32 +48,14 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
-                    val navHostEngine = rememberAnimatedNavHostEngine(
-                        navHostContentAlignment = Alignment.TopCenter,
-                        rootDefaultAnimations = RootNavGraphDefaultAnimations(
-                            enterTransition = { slideInHorizontally(animationSpec = tween(500), initialOffsetX = { it }) },
-                            exitTransition = { slideOutHorizontally(animationSpec = tween(500)) },
-                            popExitTransition = {
-                                slideOutOfContainer(
-                                    animationSpec = tween(500),
-                                    towards = AnimatedContentScope.SlideDirection.End
-                                )
-                            },
-                            popEnterTransition = {
-                                slideIntoContainer(
-                                    animationSpec = tween(500),
-                                    towards = AnimatedContentScope.SlideDirection.End,
-                                    initialOffset = { it/2 }
-                                )
-                            }
-                        )
-                    )
+                    val navHostEngine = generateCustomNavHostEngine()
 
                     DestinationsNavHost(
                         navGraph = NavGraphs.root,
                         engine = navHostEngine,
                         navController = rememberAnimatedNavController()
                     )
+
                 }
             }
         }
