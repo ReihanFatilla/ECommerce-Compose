@@ -25,6 +25,7 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.trawlbens.reift.core.domain.model.Product
 import com.trawlbens.reift.e_commerce.presentation.common.ProductGrid
 import com.trawlbens.reift.e_commerce.presentation.search.composables.SearchBar
+import com.trawlbens.reift.e_commerce.presentation.search.composables.SearchTopBar
 
 @Destination
 @Composable
@@ -35,7 +36,7 @@ fun SearchScreen(
     var query by remember { mutableStateOf("") }
     Scaffold(
         modifier = Modifier.padding(horizontal = 16.dp),
-        topBar = { SearchBar(query) { query = it } }
+        topBar = { SearchTopBar(navigator = navigator, query = query) { query = it } }
     ) { paddingValues ->
         ProductGrid(modifier = Modifier.padding(paddingValues = paddingValues), navigator = navigator, listProduct = listProduct)
     }

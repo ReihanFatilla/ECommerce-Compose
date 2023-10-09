@@ -27,7 +27,7 @@ fun SearchBar(query: String, onValueChange: (String) -> Unit) {
             .clip(RoundedCornerShape(10.dp))
             .background(Color(0xFFF1F1F1)),
         leadingIcon = { Icon(imageVector = Icons.Default.Search, contentDescription = null) },
-        placeholder = { Text(text = "Search") },
+        placeholder = { Text(text = "Find your products") },
         colors = TextFieldDefaults.outlinedTextFieldColors(
             focusedBorderColor = Color.Transparent,
             unfocusedBorderColor = Color.Transparent

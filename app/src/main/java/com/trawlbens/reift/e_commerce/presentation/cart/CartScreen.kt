@@ -20,7 +20,7 @@ fun CartScreen(
     val listProduct = Product.DUMMY
     Scaffold(
         modifier = Modifier.fillMaxSize(),
-        topBar = { CartTopBar() }
+        topBar = { CartTopBar(navigator = navigator) }
     ){ paddingValues ->
         ProductGrid(
             modifier = Modifier.padding(paddingValues),
