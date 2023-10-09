@@ -1,5 +1,6 @@
 package com.trawlbens.reift.e_commerce.di
 
+import android.util.Log
 import com.trawlbens.reift.core.di.dataSourceModule
 import com.trawlbens.reift.core.di.databaseModule
 import com.trawlbens.reift.core.di.networkModule
@@ -17,6 +18,7 @@ import com.trawlbens.reift.e_commerce.presentation.detail.DetailViewModel
 import com.trawlbens.reift.e_commerce.presentation.home.HomeViewModel
 import com.trawlbens.reift.e_commerce.presentation.search.SearchViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
 val useCaseModule = module {
@@ -27,7 +29,7 @@ val useCaseModule = module {
 }
 
 val viewModelModule = module {
-    viewModel { HomeViewModel(get()) }
+    factory { (useCase: ProductUseCase) -> HomeViewModel(useCase) }
     viewModel { DetailViewModel(get()) }
     viewModel { CartViewModel(get()) }
     viewModel { SearchViewModel(get()) }
