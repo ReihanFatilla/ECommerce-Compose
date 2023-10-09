@@ -1,5 +1,6 @@
 package com.trawlbens.reift.core.di
 
+import android.util.Log
 import androidx.room.Room
 import com.trawlbens.reift.core.data.repository.cart.CartRepositoryImpl
 import com.trawlbens.reift.core.data.repository.detail.DetailRepositoryImpl
@@ -50,13 +51,14 @@ val networkModule = module {
             }
 
             install(Logging) {
-                level = LogLevel.ALL
-                logger = Logger.DEFAULT
-            }
 
-            install(DefaultRequest) {
-                header(HttpHeaders.ContentType, ContentType.Application.Json)
-                accept(ContentType.Application.Json)
+                level = LogLevel.ALL
+                logger = object : Logger {
+                    override fun log(message: String) {
+                        Log.i("KTOR_LOGGER", message)
+                    }
+
+                }
             }
         }
     }

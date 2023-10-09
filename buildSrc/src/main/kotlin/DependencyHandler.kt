@@ -24,7 +24,6 @@ fun DependencyHandler.androidTestImplementation(dependencyNotation: String): Dep
     add("androidTestImplementation", dependencyNotation)
 
 fun DependencyHandler.addAppModuleDependencies() {
-    implementation(AppDependencies.LIFECYCLE_RUNTIME_KTX)
     implementation(AppDependencies.COMPOSE_UI)
     implementation(AppDependencies.COMPOSE_ACTIVITY)
     implementation(AppDependencies.COMPOSE_UI_GRAPHICS)
@@ -42,11 +41,12 @@ fun DependencyHandler.addCoreModuleDependencies() {
     implementation(CoreDependencies.KTOR_SERIALIZATION)
     implementation(CoreDependencies.KTOR_LOGGING)
     implementation(CoreDependencies.ROOM_RUNTIME)
-    kapt(CoreDependencies.ROOM_COMPILER)
+//    kapt(CoreDependencies.ROOM_COMPILER)
     implementation(CoreDependencies.ROOM_KTX)
 }
 
 fun DependencyHandler.addSharedModuleDepencies(){
+    implementation(AppDependencies.LIFECYCLE_RUNTIME_KTX)
     implementation(SharedDependencies.CORE_KTX)
     implementation(SharedDependencies.KOIN)
     implementation(SharedDependencies.KOIN_COMPOSE)

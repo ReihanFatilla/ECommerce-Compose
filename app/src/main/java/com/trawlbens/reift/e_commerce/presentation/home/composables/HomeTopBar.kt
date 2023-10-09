@@ -20,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.trawlbens.reift.core.domain.model.Product
+import com.trawlbens.reift.e_commerce.utils.Extension.toWordCase
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -49,7 +50,7 @@ fun TopAppBar(){
 @Composable
 fun CategoryTabRow(pagerState: PagerState, onTabClick: (Int) -> Unit){
     ScrollableTabRow(selectedTabIndex = pagerState.currentPage, edgePadding = 16.dp, indicator = {}) {
-        Product.Categories.forEachIndexed { index, text ->
+        Product.Categories.map { it.toWordCase() }.forEachIndexed { index, text ->
             Tab(
                 selected = pagerState.currentPage == index,
                 onClick = {

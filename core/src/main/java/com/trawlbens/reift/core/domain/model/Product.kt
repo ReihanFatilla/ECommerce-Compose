@@ -22,10 +22,10 @@ data class Product(
             )
         }
         val Categories = listOf(
-            "Electronics",
-            "Jewelery",
-            "Men's Clothing",
-            "Women's Clothing"
+            "electronics",
+            "jewelery",
+            "men's clothing",
+            "women's clothing"
         )
     }
 }

@@ -37,7 +37,7 @@ import com.trawlbens.reift.e_commerce.utils.Extension.firstThirdWords
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun ProductGrid(modifier: Modifier = Modifier,listProduct: List<Product>) {
+fun ProductGrid(modifier: Modifier = Modifier, listProduct: List<Product>) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
         verticalArrangement = Arrangement.spacedBy(16.dp),

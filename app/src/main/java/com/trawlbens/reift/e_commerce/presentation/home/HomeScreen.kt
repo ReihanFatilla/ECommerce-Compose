@@ -7,6 +7,8 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -14,13 +16,14 @@ import com.trawlbens.reift.core.domain.model.Product
 import com.trawlbens.reift.e_commerce.presentation.home.composables.HomeTopBar
 import com.trawlbens.reift.e_commerce.presentation.common.ProductGrid
 import kotlinx.coroutines.launch
+import org.koin.androidx.compose.getViewModel
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HomeScreen() {
     val pagerState = rememberPagerState()
     val scope = rememberCoroutineScope()
-    val listProduct = Product.DUMMY
+
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = { HomeTopBar(pagerState){
@@ -34,9 +37,13 @@ fun HomeScreen() {
                 .fillMaxSize()
                 .padding(paddingValues = paddingValues)
         ) { index ->
+            val viewmodel = getViewModel<HomeViewModel>()
+            viewmodel.getProductByCategory(Product.Categories[index])
+            val listProduct by viewmodel.listProductState.collectAsState()
             ProductGrid(
-                listProduct = listProduct,
+                listProduct = listProduct
             )
+
         }
     }
 }
