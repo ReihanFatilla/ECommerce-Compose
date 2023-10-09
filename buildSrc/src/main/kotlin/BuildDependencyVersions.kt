@@ -2,6 +2,7 @@ object BuildDependencyVersions {
     const val ANDROID_VERSION = "8.1.0"
     const val PLUGIN_SERIALIZATION_VERSION = "1.6.21"
     const val KOTLIN_VERSION = "1.8.10"
+    const val KSP_VERSION = "1.8.10-1.0.9"
 
     // Shared
     const val KOIN_VERSION = "3.2.0-beta-1"
@@ -14,6 +15,7 @@ object BuildDependencyVersions {
     const val COMPOSE_UI_VERSION = "1.3.1"
     const val MATERIAL_3_VERSION = "1.1.2"
     const val COIL_VERSION = "2.0.0-rc01"
+    const val COMPOSE_DESTINATION_VERSION = "1.7.41-beta"
 
     // Core
     const val KTOR_VERSION = "1.6.5"

@@ -2,6 +2,7 @@ plugins {
     id(BuildPlugins.ANDROID_LIBRARY)
     id(BuildPlugins.ANDROID_KOTLIN)
     id(BuildPlugins.KOTLINX_SERIALIZATION)
+    id(BuildPlugins.KOTLIN_PARCELIZE)
 }
 
 android {

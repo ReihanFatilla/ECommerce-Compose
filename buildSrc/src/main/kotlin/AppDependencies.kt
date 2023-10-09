@@ -8,4 +8,7 @@ object AppDependencies {
     const val COMPOSE_MATERIAL_3 = "androidx.compose.material3:material3:${BuildDependencyVersions.MATERIAL_3_VERSION}"
     const val COMPOSE_MATERIAL = "androidx.compose.material:material:${BuildDependencyVersions.COMPOSE_UI_VERSION}"
     const val COMPOSE_COIL = "io.coil-kt:coil-compose:${BuildDependencyVersions.COIL_VERSION}"
+
+    const val COMPOSE_DESTINATIONS = "io.github.raamcosta.compose-destinations:core:${BuildDependencyVersions.COMPOSE_DESTINATION_VERSION}"
+    const val COMPOSE_DESTINATIONS_KSP = "io.github.raamcosta.compose-destinations:ksp:${BuildDependencyVersions.COMPOSE_DESTINATION_VERSION}"
 }

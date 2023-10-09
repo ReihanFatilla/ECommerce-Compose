@@ -23,6 +23,9 @@ fun DependencyHandler.testImplementation(dependencyNotation: String): Dependency
 fun DependencyHandler.androidTestImplementation(dependencyNotation: String): Dependency? =
     add("androidTestImplementation", dependencyNotation)
 
+fun DependencyHandler.ksp(dependencyNotation: String): Dependency? =
+    add("ksp", dependencyNotation)
+
 fun DependencyHandler.addAppModuleDependencies() {
     implementation(AppDependencies.COMPOSE_UI)
     implementation(AppDependencies.COMPOSE_ACTIVITY)
@@ -31,6 +34,8 @@ fun DependencyHandler.addAppModuleDependencies() {
     implementation(AppDependencies.COMPOSE_MATERIAL)
     implementation(AppDependencies.COMPOSE_MATERIAL_3)
     implementation(AppDependencies.COMPOSE_COIL)
+    implementation(AppDependencies.COMPOSE_DESTINATIONS)
+    ksp(AppDependencies.COMPOSE_DESTINATIONS_KSP)
     debugImplementation(AppDependencies.COMPOSE_UI_TOOLING)
 }
 
@@ -41,7 +46,6 @@ fun DependencyHandler.addCoreModuleDependencies() {
     implementation(CoreDependencies.KTOR_SERIALIZATION)
     implementation(CoreDependencies.KTOR_LOGGING)
     implementation(CoreDependencies.ROOM_RUNTIME)
-//    kapt(CoreDependencies.ROOM_COMPILER)
     implementation(CoreDependencies.ROOM_KTX)
 }
 

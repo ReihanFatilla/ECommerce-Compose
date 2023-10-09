@@ -5,4 +5,6 @@ object BuildPlugins {
     const val ANDROID_KOTLIN = "org.jetbrains.kotlin.android"
     const val KOTLIN_KAPT = "kotlin-kapt"
     const val KOTLINX_SERIALIZATION = "kotlinx-serialization"
+    const val KOTLIN_PARCELIZE = "kotlin-parcelize"
+    const val DEVTOOL_KSP = "com.google.devtools.ksp"
 }
