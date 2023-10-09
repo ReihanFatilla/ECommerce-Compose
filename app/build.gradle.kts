@@ -63,6 +63,7 @@ android {
 
 dependencies {
     implementation(project(":core"))
+
     addSharedModuleDepencies()
     addAppModuleDependencies()
 }

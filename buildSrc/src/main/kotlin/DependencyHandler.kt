@@ -34,6 +34,8 @@ fun DependencyHandler.addAppModuleDependencies() {
     implementation(AppDependencies.COMPOSE_MATERIAL)
     implementation(AppDependencies.COMPOSE_MATERIAL_3)
     implementation(AppDependencies.COMPOSE_COIL)
+    implementation(AppDependencies.COMPOSE_COIL)
+    implementation(AppDependencies.COMPOSE_DESTINATIONS_ANIMATION)
     implementation(AppDependencies.COMPOSE_DESTINATIONS)
     ksp(AppDependencies.COMPOSE_DESTINATIONS_KSP)
     debugImplementation(AppDependencies.COMPOSE_UI_TOOLING)
