@@ -27,7 +27,7 @@ fun DetailTopBar(navigator: DestinationsNavigator) {
             )
         },
         backgroundColor = Color.Transparent,
-        elevation = 0.dp
+        elevation = 0.dp,
     )
 }
 
