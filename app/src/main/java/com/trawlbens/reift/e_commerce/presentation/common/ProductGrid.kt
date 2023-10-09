@@ -3,6 +3,7 @@ package com.trawlbens.reift.e_commerce.presentation.common
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -32,12 +33,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.trawlbens.reift.core.domain.model.Product
+import com.trawlbens.reift.e_commerce.presentation.destinations.DetailScreenDestination
 import com.trawlbens.reift.e_commerce.utils.Extension.firstThirdWords
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun ProductGrid(modifier: Modifier = Modifier, listProduct: List<Product>) {
+fun ProductGrid(navigator: DestinationsNavigator, modifier: Modifier = Modifier, listProduct: List<Product>) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
         verticalArrangement = Arrangement.spacedBy(16.dp),
@@ -46,7 +49,11 @@ fun ProductGrid(modifier: Modifier = Modifier, listProduct: List<Product>) {
         contentPadding = PaddingValues(16.dp)
     ) {
         items(listProduct) { product ->
-            Column {
+            Column(
+                modifier = Modifier.clickable {
+                    navigator.navigate(DetailScreenDestination(product = product))
+                }
+            ) {
                 Image(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -84,7 +91,7 @@ fun ProductGrid(modifier: Modifier = Modifier, listProduct: List<Product>) {
                 }
                 Spacer(modifier = Modifier.height(12.dp))
                 Text(
-                    text = "$ "+product.price.toString(),
+                    text = "$ "+ product.price,
                     fontWeight = FontWeight.Bold,
                     fontSize = 16.sp
                 )

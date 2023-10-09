@@ -6,12 +6,17 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.trawlbens.reift.core.domain.model.Product
 import com.trawlbens.reift.e_commerce.presentation.cart.composables.CartTopBar
 import com.trawlbens.reift.e_commerce.presentation.common.ProductGrid
 
+@Destination
 @Composable
-fun CartScreen(){
+fun CartScreen(
+    navigator: DestinationsNavigator,
+){
     val listProduct = Product.DUMMY
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -19,7 +24,8 @@ fun CartScreen(){
     ){ paddingValues ->
         ProductGrid(
             modifier = Modifier.padding(paddingValues),
-            listProduct = listProduct,
+            navigator = navigator,
+            listProduct = listProduct
         )
     }
 }
@@ -27,5 +33,5 @@ fun CartScreen(){
 @Composable
 @Preview(showBackground = true)
 fun CartScreenPreview() {
-    CartScreen()
+//    CartScreen()
 }

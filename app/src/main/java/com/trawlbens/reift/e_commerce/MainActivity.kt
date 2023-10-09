@@ -12,8 +12,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
+import com.trawlbens.reift.e_commerce.presentation.NavGraphs
 import com.trawlbens.reift.e_commerce.presentation.home.HomeScreen
-import com.trawlbens.reift.e_commerce.presentation.home.NavGraphs
 import com.trawlbens.reift.e_commerce.ui.theme.ECommerceTheme
 
 class MainActivity : ComponentActivity() {
@@ -26,6 +26,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+//                    HomeScreen()
                     DestinationsNavHost(navGraph = NavGraphs.root)
                 }
             }

@@ -21,30 +21,37 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.trawlbens.reift.core.domain.model.Product
+import com.trawlbens.reift.e_commerce.presentation.cart.CartScreen
+import com.trawlbens.reift.e_commerce.presentation.destinations.CartScreenDestination
+import com.trawlbens.reift.e_commerce.presentation.destinations.SearchScreenDestination
+import com.trawlbens.reift.e_commerce.presentation.search.SearchScreen
 import com.trawlbens.reift.e_commerce.utils.Extension.toWordCase
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun HomeTopBar(pagerState: PagerState, onTabClick: (Int) -> Unit) {
+fun HomeTopBar(pagerState: PagerState, navigator: DestinationsNavigator, onTabClick: (Int) -> Unit) {
     Column {
-        TopAppBar()
+        TopAppBar(navigator)
         CategoryTabRow(pagerState = pagerState, onTabClick = onTabClick)
     }
 }
 
 @Composable
-fun TopAppBar(){
+fun TopAppBar(navigator: DestinationsNavigator){
     TopAppBar(
         modifier = Modifier.padding(end = 20.dp),
         backgroundColor = Color.Transparent,
         elevation = 0.dp,
         title = { Text(text = "E-Commerce", fontWeight = FontWeight.Bold) },
         actions = {
-            Icon(imageVector = Icons.Outlined.Search, contentDescription = "Search icon", tint = Color.Black)
+            Icon(modifier = Modifier.clickable {
+                navigator.navigate(SearchScreenDestination)
+            },imageVector = Icons.Outlined.Search, contentDescription = "Search icon", tint = Color.Black)
             Spacer(modifier = Modifier.width(20.dp))
             Icon(modifier = Modifier.clickable {
-
+                navigator.navigate(CartScreenDestination)
             },imageVector = Icons.Outlined.ShoppingCart, contentDescription = "shopping cart icon", tint = Color.Black)
         }
     )

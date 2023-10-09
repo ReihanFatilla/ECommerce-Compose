@@ -41,7 +41,7 @@ fun HomeScreen(
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
-            HomeTopBar(pagerState) {
+            HomeTopBar(pagerState, navigator) {
                 scope.launch { pagerState.animateScrollToPage(it) }
             }
         }
@@ -54,16 +54,17 @@ fun HomeScreen(
             val useCaseInstance: ProductUseCase = get()
             val viewModel: HomeViewModel = get { parametersOf(useCaseInstance) }
             viewModel.getProductByCategory(Product.Categories[index])
-            ProductPager(viewModel)
+            ProductPager(navigator, viewModel)
         }
     }
 }
 
 @Composable
-fun ProductPager(viewModel: HomeViewModel) {
+fun ProductPager(navigator: DestinationsNavigator, viewModel: HomeViewModel) {
     val listProduct by viewModel.listProductState.collectAsState()
     ProductGrid(
-        listProduct = listProduct
+        listProduct = listProduct,
+        navigator = navigator
     )
 }
 
