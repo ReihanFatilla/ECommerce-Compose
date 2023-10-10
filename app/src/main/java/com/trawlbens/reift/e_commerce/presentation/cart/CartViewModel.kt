@@ -1,8 +1,5 @@
 package com.trawlbens.reift.e_commerce.presentation.cart
 
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.trawlbens.reift.core.domain.model.Product

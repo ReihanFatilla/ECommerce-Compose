@@ -1,6 +1,5 @@
 package com.trawlbens.reift.e_commerce.di
 
-import android.util.Log
 import com.trawlbens.reift.core.di.dataSourceModule
 import com.trawlbens.reift.core.di.databaseModule
 import com.trawlbens.reift.core.di.networkModule

@@ -20,13 +20,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.trawlbens.reift.core.domain.model.Product
-import com.trawlbens.reift.e_commerce.presentation.cart.CartScreen
 import com.trawlbens.reift.e_commerce.presentation.destinations.CartScreenDestination
 import com.trawlbens.reift.e_commerce.presentation.destinations.SearchScreenDestination
-import com.trawlbens.reift.e_commerce.presentation.search.SearchScreen
 import com.trawlbens.reift.e_commerce.utils.Extension.toWordCase
 
 @OptIn(ExperimentalFoundationApi::class)

@@ -1,6 +1,5 @@
 package com.trawlbens.reift.core.data.source.remote.api
 
-import android.util.Log
 import com.trawlbens.reift.core.data.source.remote.dto.ProductDTO
 import io.ktor.client.HttpClient
 import io.ktor.client.request.get

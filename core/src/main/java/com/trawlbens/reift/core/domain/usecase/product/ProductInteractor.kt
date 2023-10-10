@@ -1,6 +1,5 @@
 package com.trawlbens.reift.core.domain.usecase.product
 
-import android.util.Log
 import com.trawlbens.reift.core.domain.model.Product
 import com.trawlbens.reift.core.domain.repository.product.ProductRepository
 import kotlinx.coroutines.flow.Flow
