@@ -46,7 +46,7 @@ fun HomeScreen(
                 .fillMaxSize()
                 .padding(paddingValues = paddingValues),
             state = pagerState,
-            pageCount = 3
+            pageCount = 4
         ) { index ->
             val viewModel = getViewModel<HomeViewModel>(named(index.toString()))
             viewModel.getProductByCategory(Product.Categories[index])
